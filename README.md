@@ -5,6 +5,8 @@ Different groups of aliases can be included separately by defining specific macr
 ### Include Guards
 
 ```c++
+/// EXAMPLE
+
 // Includes aliases for casting methods
 #define CAST_ALIASES
 
@@ -55,9 +57,18 @@ If you just want to include everything (except STL containers), you can simply d
 | dynamic_cast     | `DCAST` |
 | reinterpret_cast | `RCAST` |
 
+### Filesystem Aliases (`#define IO_ALIASES`)
+
+| Type                                | Alias           |
+| ----------------------------------- | --------------- |
+| std::filesystem (_namespace_)       | `FileSystem`    |
+| std::filesystem::path               | `Path`          |
+| std::filesystem::directory_entry    | `Directory`     |
+| std::filesystem::directory_iterator | `DirectoryIter` |
+
 ### STL Container Aliases
 
-For STL containers like `std::vector`, `std::unordered_map`, `std::optional`, etc, **Types** provides individual include guards for each container as to avoid including a couple dozen STL headers all at once.
+For STL containers like `std::vector`, `std::unordered_map`, `std::optional`, etc, **Types** provides individual include guards for each container as to avoid including a couple dozen STL headers all at once. *The STL aliases are not an exhaustive list*; I really only aliased the ones I use most often.
 
 Here's a list of all the include guards and the types they map to:
 
