@@ -154,16 +154,21 @@ using Weak = std::weak_ptr<T>;
 
 #pragma region Custom Containers
 #if defined(CUSTOM_CONTAINERS)
+template<typename T>
+concept Numeric = std::is_arithmetic_v<T>;
+
+template<Numeric T>
 struct Rect {
-    f32 left;
-    f32 top;
-    f32 right;
-    f32 bottom;
+    T left;
+    T top;
+    T right;
+    T bottom;
 };
 
+template<Numeric T>
 struct Point {
-    f32 x;
-    f32 y;
+    T x;
+    T y;
 };
 #endif
 #pragma endregion
