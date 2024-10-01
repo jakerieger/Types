@@ -116,3 +116,7 @@ Here's a list of all the include guards and the types they map to:
 | std::unique_ptr<T, CustomDeleter> | `UniqueDelete` |
 | std::shared_ptr                   | `Shared`       |
 | std::weak_ptr                     | `Weak`         |
+
+## Where is `x`?
+
+Either I forgot it exists or don't use it enough to feel it needed an alias, likely both.
