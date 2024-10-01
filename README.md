@@ -1,6 +1,25 @@
-**Types** is a single header file for C++20 that provides type aliases for all primitive types, as well as aliases for STL containers, smart pointers, casting methods (static, dynamic, const, etc), and some custom container types for common tasks.
+**Types** is a single header file for C++20 that provides type aliases for all primitive types, as well as aliases for
+STL containers, smart pointers, casting methods (static, dynamic, const, etc), and some custom container types for
+common tasks.
 
-Different groups of aliases can be included separately by defining specific macros before including **Types** in your source. By default, only primitive type aliases are included.
+Different groups of aliases can be included separately by defining specific macros before including **Types** in your
+source. By default, only primitive type aliases are included.
+
+## Why?
+
+Because my ADD brain prefers simple, easy to distinguish type names. Here's a visual example:
+
+**Normal C++:**
+
+```c++
+std::optional<std::vector<uint8_t>> ReadAllBytes(const std::filesystem::path& filename) {}
+```
+
+**With Aliases:**
+
+```c++
+Option<Vector<u8>> ReadAllBytes(const Path& filename) {}
+```
 
 ### Include Guards
 
@@ -19,7 +38,6 @@ Different groups of aliases can be included separately by defining specific macr
 #include "Types.h"
 ```
 
-
 If you just want to include everything (except STL containers), you can simply define `ALL_ALIASES`:
 
 ```cpp
@@ -31,7 +49,7 @@ If you just want to include everything (except STL containers), you can simply d
 ### Primitive Aliases
 
 | Type                     | Alias  |
-| ------------------------ | ------ |
+|--------------------------|--------|
 | uint8_t                  | `u8`   |
 | uint16_t                 | `u16`  |
 | uint32_t                 | `u32`  |
@@ -51,7 +69,7 @@ If you just want to include everything (except STL containers), you can simply d
 ### Cast Aliases (`#define CAST_ALIASES`)
 
 | Method           | Alias   |
-| ---------------- | ------- |
+|------------------|---------|
 | static_cast      | `CAST`  |
 | const_cast       | `CCAST` |
 | dynamic_cast     | `DCAST` |
@@ -60,7 +78,7 @@ If you just want to include everything (except STL containers), you can simply d
 ### Filesystem Aliases (`#define IO_ALIASES`)
 
 | Type                                | Alias           |
-| ----------------------------------- | --------------- |
+|-------------------------------------|-----------------|
 | std::filesystem (_namespace_)       | `FileSystem`    |
 | std::filesystem::path               | `Path`          |
 | std::filesystem::directory_entry    | `Directory`     |
@@ -68,12 +86,14 @@ If you just want to include everything (except STL containers), you can simply d
 
 ### STL Container Aliases
 
-For STL containers like `std::vector`, `std::unordered_map`, `std::optional`, etc, **Types** provides individual include guards for each container as to avoid including a couple dozen STL headers all at once. *The STL aliases are not an exhaustive list*; I really only aliased the ones I use most often.
+For STL containers like `std::vector`, `std::unordered_map`, `std::optional`, etc, **Types** provides individual include
+guards for each container as to avoid including a couple dozen STL headers all at once. *The STL aliases are not an
+exhaustive list*; I really only aliased the ones I use most often.
 
 Here's a list of all the include guards and the types they map to:
 
 | Define           | STL Type           | Alias        |
-| ---------------- | ------------------ | ------------ |
+|------------------|--------------------|--------------|
 | `INC_ARRAY`      | std::array         | `Array`      |
 | `INC_ATOMIC`     | std::atomic        | `Atomic`     |
 | `INC_BTREE`      | std::map           | `BTree`      |
@@ -91,7 +111,7 @@ Here's a list of all the include guards and the types they map to:
 ### Smart Pointer Aliases (`#define PTR_ALIASES`)
 
 | Type                              | Alias          |
-| --------------------------------- | -------------- |
+|-----------------------------------|----------------|
 | std::unique_ptr                   | `Unique`       |
 | std::unique_ptr<T, CustomDeleter> | `UniqueDelete` |
 | std::shared_ptr                   | `Shared`       |
