@@ -40,6 +40,19 @@ using wstr = std::wstring;
 #endif
 #pragma endregion
 
+#pragma region Filesystem
+#if defined(IO_ALIASES) || defined(ALL_ALIASES)
+
+    #include <filesystem>
+
+namespace FileSystem = std::filesystem;
+using Path           = std::filesystem::path;
+using Directory      = std::filesystem::directory_entry;
+using DirectoryIter  = std::filesystem::directory_iterator;
+
+#endif
+#pragma endregion
+
 #pragma region STL Containers
 
 #if defined(INC_ARRAY)
