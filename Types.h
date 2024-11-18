@@ -30,3 +30,10 @@ using cstr = const char*;
 using str  = std::string;
 using wstr = std::wstring;
 #pragma endregion
+
+#if defined(TYPES_ALL)
+    #include "Cast.h"
+    #include "IO.h"
+    #include "SmartPtr.h"
+    #include "STL.h"
+#endif
